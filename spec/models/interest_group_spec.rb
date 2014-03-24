@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe InterestGroup do
-  let (:valid_attrs){{name: 'Steve'}}
+  let (:valid_attrs){{name: 'Steve', description: "All about steve"}}
 
   describe 'validation' do
   	context "when given valid attributes" do
@@ -30,27 +30,17 @@ describe InterestGroup do
     expect(interest_group).to be_valid  
   end
 
-   let (:creator_attributes) {{
-      first_name: "Barry",
-      last_name: "Zuckercorn",
-      email: "barry@hesverygood.com",
-      roles: "launcher"
-    }}
+ let (:creator_attributes) {{
+    first_name: "Barry",
+    last_name: "Zuckercorn",
+    email: "barry@hesverygood.com",
+    roles: "launcher"
+  }}
 
-  describe 'associations' do
-    it 'should have a creator' do
-      # create a User object
-      
-      creator = User.new(creator_attributes)
-      # create an InterestGroup object with that user object as the creator
-      group_attributes = {
-        name: "Excuses",
-        creator: creator
-      }
-      group = InterestGroup.create(group_attributes)
-      expect(group.creator).to eq creator
-    end
-  end		
+  it 'should have a creator' do
+    creator = User.create(creator_attributes)
+    interest_group = InterestGroup.create(name: "Steve", description: "All About Steeve", creator: creator)
+    expect(interest_group.creator).to eql creator
+  end	
 end
-
 
