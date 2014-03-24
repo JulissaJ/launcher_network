@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20140324183016) do
     t.string   "fun_fact"
     t.boolean  "exp_engineer", default: false, null: false
     t.boolean  "launcher",     default: false, null: false
- 
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                        null: false
