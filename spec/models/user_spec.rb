@@ -5,9 +5,8 @@ describe User do
 	let (:valid_attrs){ {
 			first_name: 'Steve',
 			last_name: "Smith",
+			roles: "launcher",
 			fun_fact: "I'm a unicorn",
-			exp_engineer: false,
-			launcher: true,
 			email: "imsecretlyaunicorn@gmail.com"
 			} }
   describe 'validation' do
@@ -30,9 +29,18 @@ describe User do
 		expect(user.errors[:last_name]).to include "can't be blank"
 	end
 
+	it 'requires a role' do
+		user = User.new(valid_attrs.merge(roles:'experience engineer'))
+		expect(user).to be_valid
+	end
 
 	it 'optionally takes a funfact' do 
     user = User.new(valid_attrs.merge(fun_fact: "I love Steve"))
+    expect(user).to be_valid  
+	end
+
+	it 'optionally takes a funfact' do 
+    user = User.new(valid_attrs.merge(fun_fact:""))
     expect(user).to be_valid  
 	end
 
@@ -42,10 +50,14 @@ describe User do
     expect(user.errors[:email]).to include "can't be blank" 
   end
 
- #  context 'Is either a launcher or an EE' do
-	# 	it 'requires an email' do 
-	# 	  user = User.new(valid_attrs.merge(description: " "))
-	# 	  expect(user).to be_valid  
-	# 	end
-	# end
+  it 'should have a valid email' do
+   	user = User.new(valid_attrs)
+    expect(user).to be_valid
+    user.email = 'not.com'
+    expect(user).to_not be_valid
+    user.email = 'hello@'
+    expect(user).to_not be_valid
+  end
+
+
 end

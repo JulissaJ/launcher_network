@@ -51,7 +51,6 @@ describe InterestGroup do
       
 
       group = InterestGroup.create(valid_attrs)
-      
       expect(group.creator).to eq creator
     end
   end		
