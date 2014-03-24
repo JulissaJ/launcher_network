@@ -58,6 +58,5 @@ describe User do
     user.email = 'hello@'
     expect(user).to_not be_valid
   end
-
-
 end
+

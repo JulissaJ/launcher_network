@@ -1,22 +1,30 @@
-# require 'spec_helper'
+require 'spec_helper'
+
+
+
+
+
+
+
 
 # describe GroupMembership do
 #    describe 'validation' do
 #   	context "when given valid attributes" do
 #   		it 'is valid' do
-#   		user = User.create(
+#   		user = User.new(
 # 			first_name: 'Steve',
 # 			last_name: "Smith",
 # 			roles: "launcher",
 # 			fun_fact: "I'm a unicorn",
 # 			email: "imsecretlyaunicorn@gmail.com"
 # 			) 
-# 			group = InterestGroup.create(
+# 			group = InterestGroup.new(
 #         name: "Excuses",
-#         creator: creator
+#         user: user
 #       )
-#       groupmembership = GroupMembership.new(user,group)
-#   			expect(groupmembership).to be_valid
+#       groupmembership = GroupMembership.new(user: user, group: group)
+#   			expect(groupmembership.user).to eql user
+#   			expect(groupmembership.group).to eql group
 #   		end
 #   	end
 #   end

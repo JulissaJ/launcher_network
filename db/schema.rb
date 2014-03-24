@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20140324205623) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "fun_fact"
-    t.boolean  "exp_engineer", default: false,      null: false
-    t.boolean  "launcher",     default: false,      null: false
+    t.boolean  "exp_engineer", default: false, null: false
+    t.boolean  "launcher",     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                             null: false
-    t.string   "roles",        default: "launcher"
+    t.string   "email",  null: false
+    t.string   "roles",  default: "launcher"
   end
 
 end
