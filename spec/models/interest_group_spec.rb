@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe InterestGroup do
-  let (:valid_attrs){{name: 'Steve', creator_id: 2}}
+  let (:valid_attrs){{name: 'Steve'}}
 
   describe 'validation' do
   	context "when given valid attributes" do
@@ -34,8 +34,7 @@ describe InterestGroup do
       first_name: "Barry",
       last_name: "Zuckercorn",
       email: "barry@hesverygood.com",
-      exp_engineer: true,
-      launcher: false
+      roles: "launcher"
     }}
 
   describe 'associations' do
@@ -48,9 +47,7 @@ describe InterestGroup do
         name: "Excuses",
         creator: creator
       }
-      
-
-      group = InterestGroup.create(valid_attrs)
+      group = InterestGroup.create(group_attributes)
       expect(group.creator).to eq creator
     end
   end		
