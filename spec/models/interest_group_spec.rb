@@ -34,7 +34,7 @@ describe InterestGroup do
     first_name: "Barry",
     last_name: "Zuckercorn",
     email: "barry@hesverygood.com",
-    roles: "launcher"
+    role: "launcher"
   }}
 
   it 'should have a creator' do

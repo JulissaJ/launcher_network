@@ -5,7 +5,7 @@ describe User do
 	let (:valid_attrs){ {
 			first_name: 'Steve',
 			last_name: "Smith",
-			roles: "launcher",
+			role: "launcher",
 			fun_fact: "I'm a unicorn",
 			email: "imsecretlyaunicorn@gmail.com"
 			} }
@@ -30,7 +30,7 @@ describe User do
 	end
 
 	it 'requires a role' do
-		user = User.new(valid_attrs.merge(roles:'experience engineer'))
+		user = User.new(valid_attrs.merge(role:'experience engineer'))
 		expect(user).to be_valid
 	end
 

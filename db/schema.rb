@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324205623) do
+ActiveRecord::Schema.define(version: 20140325193540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.text     "body",       null: false
+    t.integer  "post_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "group_memberships", force: true do |t|
     t.integer  "interest_group_id"
@@ -31,16 +39,26 @@ ActiveRecord::Schema.define(version: 20140324205623) do
     t.integer  "creator_id",  null: false
   end
 
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "date_created"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "interest_group_id", null: false
+  end
+
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "fun_fact"
-    t.boolean  "exp_engineer", default: false, null: false
-    t.boolean  "launcher",     default: false, null: false
+    t.boolean  "exp_engineer", default: false,      null: false
+    t.boolean  "launcher",     default: false,      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",  null: false
-    t.string   "roles",  default: "launcher"
+    t.string   "email",                             null: false
+    t.string   "role",         default: "launcher"
   end
 
 end

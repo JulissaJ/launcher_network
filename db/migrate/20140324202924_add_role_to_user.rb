@@ -1,5 +1,5 @@
 class AddRoleToUser < ActiveRecord::Migration
   def change
-  	add_column :users, :roles, :string, default: "launcher" 
+  	add_column :users, :role, :string, default: "launcher" 
   end
 end
