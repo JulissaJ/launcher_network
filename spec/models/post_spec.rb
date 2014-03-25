@@ -69,5 +69,6 @@ describe Post do
       Comment.create(user: user, body: 'comment', post: post2)
     end
     expect(Post.favorite).to eql(post2)
+    expect(Post.top3).to eq([post2, post3, post1])
   end
 end

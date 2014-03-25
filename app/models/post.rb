@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.top3
-  	order("comments_count DESC").limit(3).take
+  	order("comments_count DESC").limit(3)
   end
 
 end

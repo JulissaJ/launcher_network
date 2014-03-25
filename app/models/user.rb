@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 	has_many :interest_groups
 	has_many :posts
 	has_many :comments
+
+	def self.number_of_groups_they_belong_to
+		
+	end
 end
 
 

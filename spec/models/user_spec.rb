@@ -58,5 +58,25 @@ describe User do
     user.email = 'hello@'
     expect(user).to_not be_valid
   end
+
+  context "user instance methods" do
+      it "names all the groups users belong to" do
+        user = User.create(valid_attrs)
+        interest_group = InterestGroup.create!(name: 'rails', creator: user)
+        interest_group2 = InterestGroup.create!(name: 'django', creator: user)
+        interest_group3 = InterestGroup.create!(name: 'CakePHP', creator: user)
+        expect(user.number_of_groups_they_belong_to).to eql(3)
+      end
+
+      # it "shows number of posts the've made" do
+      # end
+
+      # it "shows the number of comments they've made" do
+
+      # end
+
+    end
+
+
 end
 
